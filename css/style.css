@@ -1,12 +1,21 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
     font-family: 'Lato', sans-serif;
+}
+
+.header {
+    padding: 15px 0;
 }
 
 
 .navigation {
     list-style: none;
     padding: 0;
+    margin: 0;
 }
 
 .navigation-link {
@@ -39,6 +48,11 @@ body {
 
 .button-icon, .button-price {
     margin-right: 10px;
+}
+
+.button-icon:last-child {
+    margin-right: 0;
+    margin-left: 10px;
 }
 
 .slide {
@@ -92,4 +106,74 @@ body {
 .slider-button {
     background-color: transparent;
     border: none;
+}
+
+.card {
+    min-height: 370px;
+    border-radius: 10px;
+    padding: 60px 46px 80px;
+
+}
+
+.card-1 {
+    background: #E3E2E3 url("../img/cart-image-1.jpg") no-repeat top right;
+    background-size: cover;
+}
+
+.card-2 {
+    background: #000 url("../img/cart-image-2.jpg") no-repeat top right;
+    background-size: cover;
+}
+
+.card-3 {
+    padding-top: 35px;
+    background: #CCD5E6 url("../img/cart-image-3.png") no-repeat top right 10%;
+    background-size: contain;
+}
+
+.card-4 {
+    padding-top: 35px;
+    padding-left: 25px;
+    background: #FF4F52 url("../img/cart-image-4.png") no-repeat top right;
+    background-size: contain;
+}
+
+.card-title {
+    color: #262D33;
+    font-size: 25px;
+    line-height: 30px;
+    font-family: 'Roboto Slab', serif;
+    max-width: 222px;
+    margin: 0;
+}
+
+.card-title.large {
+    max-width: 420px;
+    font-size: 40px;
+    line-height: 50px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.card-text {
+    color: #4B5157;
+    font-size: 14px;
+    line-height: 20px;
+    max-width: 176px;
+    margin-bottom: 25px;
+}
+
+.card-text.large {
+    max-width: 320px;
+}
+
+.text-light {
+    color: #fff;
+}
+
+.card-price {
+    color: #ffffff;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 900;
 }
