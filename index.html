@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" sizes="16x16" href="img/favicon.ico" type="image/x-icon">
 </head>
@@ -62,35 +63,57 @@
     </div>
     <!-- /.row -->
 </header>
-<div class="slider">
-    <section class="slide slide-1">
-        <div class="container">
-            <div class="row">
-                <div class="col-4 offset-lg-1">
-                    <span class="label">Bestseller</span>
-                    <h2 class="slide-title">Sweater Choker Neck </h2>
-                    <p class="slide-description">
-                        Women’s pearl basic knit sweater with a round neck. Available in several colours. Free shipping
-                        to stores.
-                    </p>
-                    <button class="button">
-                        <span class="button-price">$319</span>
-                        <span class="button-text">Shop now</span>
-                    </button>
+<div class="slider swiper-container">
+    <div class="swiper-wrapper">
+        <section class="slide slide-1 swiper-slide">
+            <div class="container">
+                <div class="row">
+                    <div class="col-4 offset-lg-1">
+                        <span class="label">Bestseller</span>
+                        <h2 class="slide-title">Sweater Choker Neck </h2>
+                        <p class="slide-description">
+                            Women’s pearl basic knit sweater with a round neck. Available in several colours. Free shipping
+                            to stores.
+                        </p>
+                        <button class="button">
+                            <span class="button-price">$319</span>
+                            <span class="button-text">Shop now</span>
+                        </button>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+        <section class="slide slide-2 swiper-slide">
+            <div class="container">
+                <div class="row">
+                    <div class="col-4 offset-lg-1">
+                        <span class="label">New</span>
+                        <h2 class="slide-title">Gray Coat</h2>
+                        <p class="slide-description">
+                            Women's coat - a jacket ideal for the spring season.
+                            You will look gorgeous in this beautiful ladies grey jacket. Wear it from office to party and pair it with different accessories.
+                        </p>
+                        <button class="button">
+                            <span class="button-price">$251</span>
+                            <span class="button-text">Shop now</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+    <!-- /.swiper-wrapper -->
     <div class="slider-nav">
         <div class="container">
             <div class="row justify-content-between">
                 <div class="col-1">
-                    <button class="slider-button">
+                    <button class="slider-button slider-button-prev">
                         <img src="img/arrow-prev.svg" alt="arrow">
                     </button>
                 </div>
                 <div class="col-1">
-                    <button class="slider-button">
+                    <button class="slider-button slider-button-next">
                         <img src="img/arrow-next.svg" alt="arrow">
                     </button>
                 </div>
@@ -257,5 +280,7 @@
         </div>
     </div>
 </footer>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script src="js/main.js"></script>
 </body>
 </html>
