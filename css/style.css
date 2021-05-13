@@ -177,3 +177,59 @@ body {
     line-height: 20px;
     font-weight: 900;
 }
+
+.section-title {
+    font-size: 25px;
+    line-height: 30px;
+    font-family: 'Roboto Slab', serif;
+    color: #262D33;
+}
+
+.more {
+    text-decoration: none;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 14px;
+    line-height: 20px;
+    color: #262D33;
+    padding: 10px;
+}
+
+.goods-card {
+    position: relative;
+    text-align: center;
+    padding: 30px 35px 35px;
+}
+
+.goods-card .label {
+    position: absolute;
+    left: 18px;
+    top: 18px;
+}
+
+.goods-title {
+    font-family: 'Roboto Slab', serif;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 25px;
+    color: #262D33;
+}
+
+.goods-description {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 20px;
+    color: #4B5157;
+}
+
+.goods-price {
+    margin-top: 30px;
+    font-size: 18px;
+    line-height: 30px;
+    color: #262D33;
+    font-weight: 900;
+}
