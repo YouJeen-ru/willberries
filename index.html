@@ -20,7 +20,7 @@
     <link rel="icon" sizes="16x16" href="img/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body id="body">
 <header class="container header px-4 px-md-0">
     <div class="row justify-content-between align-items-center">
         <div class="col-lg-2 col-6">
@@ -60,9 +60,10 @@
         </div>
         <!-- /.col-6 -->
         <div class="col-lg-2 col-6 d-flex justify-content-end">
-            <button class="button">
+            <button class="button button-cart">
                 <img class="button-icon" src="img/basket.svg" alt="basket">
                 <span class="button-text">Cart</span>
+                <span class="button-text cart-count"></span>
             </button>
         </div>
         <!-- /.col-2 -->
@@ -275,7 +276,7 @@
             <div class="col-lg-3 col-sm-6">
                 <div class="goods-card">
                     <span class="label">New</span>
-                    <!-- /.label --><img src="img/image-119.jpg" alt="image: Hoodie" class="goods-image">
+                    <!-- /.label --><img src="img/goods-image-1.jpg" alt="image: Hoodie" class="goods-image">
                     <h3 class="goods-title">Embroidered Hoodie</h3>
                     <!-- /.goods-title -->
                     <p class="goods-description">Yellow/Lilac/Fuchsia/Orange</p>
@@ -291,7 +292,7 @@
             <div class="col-lg-3 col-sm-6">
                 <div class="goods-card">
                     <span class="label">New</span>
-                    <!-- /.label --><img src="img/image-120.jpg" alt="image: Faded Beach Trousers" class="goods-image">
+                    <!-- /.label --><img src="img/goods-image-2.jpg" alt="image: Faded Beach Trousers" class="goods-image">
                     <h3 class="goods-title">Faded Beach Trousers</h3>
                     <!-- /.goods-title -->
                     <p class="goods-description">Navy/Ochre/Black/Khaki</p>
@@ -307,7 +308,7 @@
             <div class="col-lg-3 col-sm-6">
                 <div class="goods-card">
                     <span class="label">New</span>
-                    <!-- /.label --><img src="img/image-121.jpg" alt="image: Text T-Shirt" class="goods-image">
+                    <!-- /.label --><img src="img/goods-image-3.jpg" alt="image: Text T-Shirt" class="goods-image">
                     <h3 class="goods-title">Text T-Shirt</h3>
                     <!-- /.goods-title -->
                     <p class="goods-description">White</p>
@@ -323,7 +324,7 @@
             <div class="col-lg-3 col-sm-6">
                 <div class="goods-card">
                     <span class="label">New</span>
-                    <!-- /.label --><img src="img/image-122.jpg" alt="image: Striped Long Sleeve Shirt" class="goods-image">
+                    <!-- /.label --><img src="img/goods-image-4.jpg" alt="image: Striped Long Sleeve Shirt" class="goods-image">
                     <h3 class="goods-title">Striped Long Sleeve Shirt</h3>
                     <!-- /.goods-title -->
                     <p class="goods-description">Red/Sky Blue</p>
@@ -339,7 +340,7 @@
             <div class="col-lg-3 col-sm-6">
                 <div class="goods-card">
                     <span class="label">New</span>
-                    <!-- /.label --><img src="img/image-119.jpg" alt="image: Hoodie" class="goods-image">
+                    <!-- /.label --><img src="img/goods-image-1.jpg" alt="image: Hoodie" class="goods-image">
                     <h3 class="goods-title">Embroidered Hoodie</h3>
                     <!-- /.goods-title -->
                     <p class="goods-description">Yellow/Lilac/Fuchsia/Orange</p>
@@ -355,7 +356,7 @@
             <div class="col-lg-3 col-sm-6">
                 <div class="goods-card">
                     <span class="label">New</span>
-                    <!-- /.label --><img src="img/image-120.jpg" alt="image: Faded Beach Trousers" class="goods-image">
+                    <!-- /.label --><img src="img/goods-image-2.jpg" alt="image: Faded Beach Trousers" class="goods-image">
                     <h3 class="goods-title">Faded Beach Trousers</h3>
                     <!-- /.goods-title -->
                     <p class="goods-description">Navy/Ochre/Black/Khaki</p>
@@ -371,7 +372,7 @@
             <div class="col-lg-3 col-sm-6">
                 <div class="goods-card">
                     <span class="label">New</span>
-                    <!-- /.label --><img src="img/image-121.jpg" alt="image: Text T-Shirt" class="goods-image">
+                    <!-- /.label --><img src="img/goods-image-3.jpg" alt="image: Text T-Shirt" class="goods-image">
                     <h3 class="goods-title">Text T-Shirt</h3>
                     <!-- /.goods-title -->
                     <p class="goods-description">White</p>
@@ -387,7 +388,7 @@
             <div class="col-lg-3 col-sm-6">
                 <div class="goods-card">
                     <span class="label">New</span>
-                    <!-- /.label --><img src="img/image-122.jpg" alt="image: Striped Long Sleeve Shirt" class="goods-image">
+                    <!-- /.label --><img src="img/goods-image-4.jpg" alt="image: Striped Long Sleeve Shirt" class="goods-image">
                     <h3 class="goods-title">Striped Long Sleeve Shirt</h3>
                     <!-- /.goods-title -->
                     <p class="goods-description">Red/Sky Blue</p>
@@ -403,7 +404,7 @@
             <div class="col-lg-3 col-sm-6">
                 <div class="goods-card">
                     <span class="label">New</span>
-                    <!-- /.label --><img src="img/image-119.jpg" alt="image: Hoodie" class="goods-image">
+                    <!-- /.label --><img src="img/goods-image-1.jpg" alt="image: Hoodie" class="goods-image">
                     <h3 class="goods-title">Embroidered Hoodie</h3>
                     <!-- /.goods-title -->
                     <p class="goods-description">Yellow/Lilac/Fuchsia/Orange</p>
@@ -419,7 +420,7 @@
             <div class="col-lg-3 col-sm-6">
                 <div class="goods-card">
                     <span class="label">New</span>
-                    <!-- /.label --><img src="img/image-120.jpg" alt="image: Faded Beach Trousers" class="goods-image">
+                    <!-- /.label --><img src="img/goods-image-2.jpg" alt="image: Faded Beach Trousers" class="goods-image">
                     <h3 class="goods-title">Faded Beach Trousers</h3>
                     <!-- /.goods-title -->
                     <p class="goods-description">Navy/Ochre/Black/Khaki</p>
@@ -435,7 +436,7 @@
             <div class="col-lg-3 col-sm-6">
                 <div class="goods-card">
                     <span class="label">New</span>
-                    <!-- /.label --><img src="img/image-121.jpg" alt="image: Text T-Shirt" class="goods-image">
+                    <!-- /.label --><img src="img/goods-image-3.jpg" alt="image: Text T-Shirt" class="goods-image">
                     <h3 class="goods-title">Text T-Shirt</h3>
                     <!-- /.goods-title -->
                     <p class="goods-description">White</p>
@@ -451,7 +452,7 @@
             <div class="col-lg-3 col-sm-6">
                 <div class="goods-card">
                     <span class="label">New</span>
-                    <!-- /.label --><img src="img/image-122.jpg" alt="image: Striped Long Sleeve Shirt" class="goods-image">
+                    <!-- /.label --><img src="img/goods-image-4.jpg" alt="image: Striped Long Sleeve Shirt" class="goods-image">
                     <h3 class="goods-title">Striped Long Sleeve Shirt</h3>
                     <!-- /.goods-title -->
                     <p class="goods-description">Red/Sky Blue</p>
@@ -492,7 +493,7 @@
                 </span>
             </div>
             <div class="col-xl-2 col-lg-3 d-flex justify-content-lg-end mt-4 mt-lg-0">
-                <span class="footer-text">© 2019 Universal UI</span>
+                <span class="footer-text">© 2021 Universal UI</span>
             </div>
         </div>
         <hr class="footer-line mb-4 mt-4" size="1">
@@ -504,7 +505,7 @@
                 <img class="payment-logo" src="img/bitcoin.png" alt="">
             </div>
             <div class="col-lg-2 col-sm-1 d-flex">
-                <a href="#" class="top-link d-flex align-items-center">
+                <a href="#body" class="scroll-link top-link d-flex align-items-center">
                     <span class="top-link-text">Top</span>
                     <img src="img/top.svg" alt="">
                 </a>
