@@ -7,10 +7,14 @@ body {
     font-family: 'Lato', sans-serif;
 }
 
+img {
+    max-width: 100%;
+    height: auto;
+}
+
 .header {
     padding: 15px 0;
 }
-
 
 .navigation {
     list-style: none;
@@ -20,14 +24,18 @@ body {
 
 .navigation-link {
     text-decoration: none;
+    text-transform: uppercase;
+    color: #939699;
     font-family: 'Lato', sans-serif;
     font-style: normal;
     font-weight: 900;
     font-size: 14px;
     line-height: 20px;
     letter-spacing: 0.5px;
-    text-transform: uppercase;
-    color: #939699;
+}
+
+button {
+    cursor: pointer;
 }
 
 .button {
@@ -36,23 +44,28 @@ body {
     border-radius: 20px;
     border: none;
     color: #fff;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Lato',
+    sans-serif;
     font-style: normal;
     font-weight: 900;
     font-size: 14px;
     line-height: 20px;
     display: flex;
     align-items: center;
-    cursor: pointer;
 }
 
 .button-icon, .button-price {
     margin-right: 10px;
+
+}
+
+.button-icon {
+    margin-left: 10px;
 }
 
 .button-icon:last-child {
     margin-right: 0;
-    margin-left: 10px;
+
 }
 
 .cart-count {
@@ -79,12 +92,11 @@ body {
 }
 
 .slide-1 {
-    background: #B4D1E0 url("../img/slider-image-1.png") no-repeat top right 10%;
+    background: #B4D1E0 url('../img/slider-image-1.png') no-repeat top right 30%;
 }
 
 .slide-2 {
-    background: #B4D1E0 url("../img/slider-image-2.png") no-repeat top 40% right 10%;
-
+    background: #b9e0b4 url('../img/slider-image-1.png') no-repeat top right 30%;
 }
 
 .label {
@@ -97,12 +109,11 @@ body {
 }
 
 .slide-title {
-    font-family: 'Roboto Slab', serif;
-    font-style: normal;
-    font-weight: bold;
+    color: #262D33;
     font-size: 55px;
     line-height: 70px;
-    color: #262D33;
+    font-family: 'Roboto Slab',
+    serif;
     margin-top: 20px;
     margin-bottom: 15px;
 }
@@ -124,49 +135,66 @@ body {
     top: 50%;
     width: 100%;
     transform: translateY(-50%);
-    z-index: 5;
+    z-index: 9;
 }
 
 .slider-button {
     background-color: transparent;
     border: none;
+    cursor: pointer;
 }
 
 .card {
     min-height: 370px;
     border-radius: 10px;
-    padding: 60px 46px 80px;
-
+    padding-top: 60px;
+    padding-left: 46px;
+    padding-right: 46px;
+    padding-bottom: 80px;
 }
 
 .card-1 {
-    background: #E3E2E3 url("../img/cart-image-1.jpg") no-repeat top right;
+    background: #E3E2E3 url('../img/cart-image-1.jpg') no-repeat top right;
     background-size: cover;
 }
 
 .card-2 {
-    background: #000 url("../img/cart-image-2.jpg") no-repeat top right;
+    background: #000 url('../img/cart-image-2.jpg') no-repeat top right;
     background-size: cover;
 }
 
 .card-3 {
     padding-top: 35px;
-    background: #CCD5E6 url("../img/cart-image-3.png") no-repeat top right 10%;
+    background: #CCD5E6 url('../img/cart-image-3.png') no-repeat top right 10%;
     background-size: contain;
 }
 
 .card-4 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
     padding-top: 35px;
     padding-left: 25px;
-    background: #FF4F52 url("../img/cart-image-4.png") no-repeat top right;
+    background: #FF4F52 url('../img/cart-image-4.png') no-repeat top right;
     background-size: contain;
+}
+
+.goods-card-btn {
+    display: block;
+    width: 100px;
+    margin: auto auto 0;
+}
+
+.goods-card-btn .button-price{
+    margin: 0;
 }
 
 .card-title {
     color: #262D33;
     font-size: 25px;
     line-height: 30px;
-    font-family: 'Roboto Slab', serif;
+    font-family: 'Roboto Slab',
+    serif;
     max-width: 222px;
     margin: 0;
 }
@@ -180,19 +208,16 @@ body {
 }
 
 .card-text {
+    max-width: 176px;
     color: #4B5157;
     font-size: 14px;
     line-height: 20px;
-    max-width: 176px;
     margin-bottom: 25px;
 }
 
 .card-text.large {
     max-width: 320px;
-}
 
-.text-light {
-    color: #fff;
 }
 
 .card-price {
@@ -202,27 +227,34 @@ body {
     font-weight: 900;
 }
 
+.text-light {
+    color: #fff
+}
+
 .section-title {
+    font-family: 'Roboto Slab',
+    serif;
     font-size: 25px;
     line-height: 30px;
-    font-family: 'Roboto Slab', serif;
     color: #262D33;
 }
 
 .more {
     text-decoration: none;
-    font-style: normal;
+    color: #262D33;
     font-weight: 900;
     font-size: 14px;
     line-height: 20px;
-    color: #262D33;
     padding: 10px;
 }
 
 .goods-card {
+    display: flex;
+    flex-direction: column;
     position: relative;
     text-align: center;
     padding: 30px 35px 35px;
+    min-height: 440px;
 }
 
 .goods-card .label {
@@ -232,34 +264,40 @@ body {
 }
 
 .goods-title {
-    font-family: 'Roboto Slab', serif;
     margin-top: 15px;
     margin-bottom: 5px;
-    font-style: normal;
-    font-weight: bold;
+    color: #262D33;
     font-size: 16px;
     line-height: 25px;
-    color: #262D33;
+    font-family: 'Roboto Slab',
+    serif;
+}
+
+.goods-image {
+    object-fit: contain;
+    height: 190px;
 }
 
 .goods-description {
-    font-style: normal;
-    font-weight: normal;
+    color: #4B5157;
     font-size: 14px;
     line-height: 20px;
-    color: #4B5157;
 }
 
 .goods-price {
+    color: #262D33;
     margin-top: 30px;
     font-size: 18px;
     line-height: 30px;
-    color: #262D33;
     font-weight: 900;
 }
 
+.button-four {
+    margin-top: auto;
+}
+
 .footer-menu {
-    list-style: none;
+    list-style-type: none;
     margin: 0;
     padding: 0;
 }
@@ -283,19 +321,19 @@ body {
     line-height: 20px;
 }
 
-
 .social-link {
     text-decoration: none;
     margin-left: 15px;
 }
 
 .footer-text {
+    color: #E7D9FF;
     font-size: 14px;
     line-height: 20px;
-    color: #E7D9FF;
 }
+
 .footer-line {
-    color: rgba(255,255,255,0.5);
+    opacity: 0.5;
 }
 
 .top-link {
@@ -355,7 +393,6 @@ body {
     top: 15px;
     font-size: 24px;
     border: none;
-    cursor: pointer;
 }
 
 .modal-form {
@@ -423,13 +460,12 @@ body {
     width: 5px;
 }
 
+
 @media (max-width: 1200px) {
     .slide-1 {
         background-size: cover;
     }
-    .slide-2 {
-        background-size: cover;
-    }
+
     .card-3 {
         background-size: cover;
     }
@@ -439,6 +475,7 @@ body {
     .slider-nav {
         display: none;
     }
+
     .modal {
         min-width: 400px;
         max-height: 300px;
@@ -447,20 +484,26 @@ body {
 
 }
 
-@media (max-width: 567px) {
+@media (max-width: 576px) {
     .slide-title {
         font-size: 36px;
         line-height: 1.4;
         margin-bottom: 0;
     }
+
     .card {
         background-position: left top;
-        padding: 20px;
-        min-height: 300px;
     }
+
     .card-4 {
         background-position: right top;
     }
+
+    .card {
+        padding: 30px;
+        min-height: 300px;
+    }
+
     .modal {
         min-width: 300px;
         max-height: 400px;
