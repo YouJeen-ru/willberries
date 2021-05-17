@@ -8,10 +8,6 @@ const swiper = new Swiper('.swiper-container', {
         prevEl: '.slider-button-prev',
     },
 
-    // And if we need scrollbar
-    scrollbar: {
-        el: '.swiper-scrollbar',
-    },
 });
 
 // cart
