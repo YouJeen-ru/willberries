@@ -62,6 +62,9 @@ const viewAll = document.querySelectorAll('.view-all')
 const navigationLink = document.querySelectorAll('.navigation-link:not(.view-all)')
 const longGoodsList = document.querySelector('.long-goods-list')
 
+const showAccessories = document.querySelectorAll('.show-accessories')
+const showClothing = document.querySelectorAll('.show-clothing')
+
 const getGoods = async function () {
     const result = await fetch('db/db.json')
     if (!result.ok) {
@@ -131,5 +134,20 @@ navigationLink.forEach(function (link) {
         const field = link.dataset.field
         const value = link.textContent
         filterCards(field, value)
+    })
+})
+
+showAccessories.forEach(item => {
+    item.addEventListener('click', e => {
+        e.preventDefault()
+        filterCards('category', 'Accessories')
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    })
+})
+showClothing.forEach(item => {
+    item.addEventListener('click', e => {
+        e.preventDefault()
+        filterCards('category', 'Clothing')
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     })
 })
