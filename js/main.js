@@ -109,10 +109,7 @@ const showAll = function (event) {
 }
 
 viewAll.forEach(function (elem) {
-    elem.addEventListener('click', function (event) {
-        event.preventDefault()
-        getGoods().then(renderCards)
-    })
+    elem.addEventListener('click',showAll)
 })
 
 
