@@ -14,20 +14,34 @@ const swiper = new Swiper('.swiper-container', {
 
 const buttonCart = document.querySelector('.button-cart')
 const modalCart = document.querySelector('#modal-cart')
+const viewAll = document.querySelectorAll('.view-all')
+const navigationLink = document.querySelectorAll('.navigation-link:not(.view-all)')
+const longGoodsList = document.querySelector('.long-goods-list')
+
+const showAccessories = document.querySelectorAll('.show-accessories')
+const showClothing = document.querySelectorAll('.show-clothing')
+
+const getGoods = async () => {
+    const result = await fetch('db/db.json')
+    if (!result.ok) {
+        throw 'Error' + result.status
+    }
+    return result.json()
+}
 
 
-const openModal = function () {
+const openModal = () => {
     modalCart.classList.add('show')
 }
 
-const closeModal = function () {
+const closeModal = () => {
     modalCart.classList.remove('show')
 }
 
 buttonCart.addEventListener('click', openModal)
 
 
-modalCart.addEventListener('click', function (event) {
+modalCart.addEventListener('click', event => {
     const target = event.target
     if(target.classList.contains('overlay') || (target.classList.contains('modal-close'))) {
         closeModal()
@@ -54,24 +68,6 @@ modalCart.addEventListener('click', function (event) {
 
 // goods
 
-const viewAll = document.querySelectorAll('.view-all')
-const navigationLink = document.querySelectorAll('.navigation-link:not(.view-all)')
-const longGoodsList = document.querySelector('.long-goods-list')
-
-const showAccessories = document.querySelectorAll('.show-accessories')
-const showClothing = document.querySelectorAll('.show-clothing')
-
-const getGoods = async function () {
-    const result = await fetch('db/db.json')
-    if (!result.ok) {
-        throw 'Error' + result.status
-    }
-    return result.json()
-}
-
-getGoods().then(function (data) {
-    console.log(data)
-})
 
 const createCard = function ({ label, name, img, description, id , price }) {
     const card = document.createElement('div')
@@ -102,7 +98,7 @@ const renderCards = function (data) {
     document.body.classList.add('show-goods')
 }
 
-const showAll = function (event) {
+const showAll = event => {
     event.preventDefault()
     getGoods().then(renderCards)
 }
@@ -115,17 +111,12 @@ viewAll.forEach(function (elem) {
 
 const filterCards = function (field, value) {
     getGoods()
-        .then(function (data) {
-        const filteredGoods = data.filter(function (good) {
-            return good[field] === value
-        })
-        return filteredGoods
-    })
+        .then(data =>  data.filter(good =>  good[field] === value))
         .then(renderCards)
 }
 
 navigationLink.forEach(function (link) {
-    link.addEventListener('click', function (event) {
+    link.addEventListener('click', event => {
         event.preventDefault()
         const field = link.dataset.field
         const value = link.textContent
