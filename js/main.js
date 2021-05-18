@@ -21,6 +21,9 @@ const longGoodsList = document.querySelector('.long-goods-list')
 const showAccessories = document.querySelectorAll('.show-accessories')
 const showClothing = document.querySelectorAll('.show-clothing')
 
+const cartTableGoods = document.querySelector('.cart-table__goods')
+const cardTableTotal = document.querySelector('.card-table__total')
+
 const getGoods = async () => {
     const result = await fetch('db/db.json')
     if (!result.ok) {
@@ -29,9 +32,125 @@ const getGoods = async () => {
     return result.json()
 }
 
+const cart = {
+    cartGoods: [
+        {
+            id: '099',
+            name: 'Dior cap',
+            price: 876,
+            count: 5,
+        },
+        {
+            id: '100',
+            name: 'Ad weather',
+            price: 500,
+            count: 1,
+        }
+    ],
+    renderCart() {
+        cartTableGoods.textContent = ''
+        this.cartGoods.forEach(({ id, name, price, count }) => {
+            const trGood = document.createElement('tr')
+            trGood.className = 'cart-item'
+            trGood.dataset.id = id
+
+            trGood.innerHTML = `
+                <td>${name}</td>
+                <td>${price}$</td>
+                <td><button class="cart-btn-minus">-</button></td>
+                <td>${count}</td>
+                <td><button class="cart-btn-plus">+</button></td>
+                <td>${price * count}</td>
+                <td><button class="cart-btn-delete">x</button></td>
+            `
+            cartTableGoods.append(trGood)
+        })
+
+        const totalPrice = this.cartGoods.reduce((sum, item) => {
+            return sum + item.price * item.count
+        }, 0)
+
+        cardTableTotal.textContent = totalPrice + '$'
+
+    },
+    deleteGood(id) {
+        this.cartGoods = this.cartGoods.filter(item => id !== item.id)
+        this.renderCart()
+    },
+    minusGood(id) {
+        for (const item of this.cartGoods) {
+            if (item.id === id) {
+                if (item.count <= 1) {
+                    this.deleteGood(id)
+                } else {
+                    item.count--
+                }
+                break
+            }
+        }
+        this.renderCart()
+    },
+    plusGood(id) {
+        for (const item of this.cartGoods) {
+            if (item.id === id) {
+                item.count++
+                break
+            }
+        }
+        this.renderCart()
+    },
+    addCartGoods(id){
+        const goodItem = this.cartGoods.find(item => item.id === id)
+        if (goodItem) {
+            this.plusGood(id)
+        } else {
+            getGoods()
+                .then(data => data.find(item => item.id === id))
+                .then(({ id, name, price  }) => {
+                    this.cartGoods.push({
+                        id,
+                        name,
+                        price,
+                        count: 1
+                    })
+                })
+        }
+    },
+}
+
+cart.addCartGoods('001')
+
+document.body.addEventListener('click', event => {
+    const addToCart = event.target.closest('.add-to-cart')
+
+    if (addToCart) {
+        cart.addCartGoods(addToCart.dataset.id)
+    }
+} )
+
+cartTableGoods.addEventListener('click', event => {
+    const target = event.target
+    if (target.tagName === "BUTTON") {
+        const id = target.closest('.cart-item').dataset.id
+
+        if (target.classList.contains('cart-btn-delete')) {
+            cart.deleteGood(id)
+        }
+
+        if (target.classList.contains('cart-btn-minus')) {
+            cart.minusGood(id)
+        }
+
+        if (target.classList.contains('cart-btn-plus')) {
+            cart.plusGood(id)
+        }
+    }
+
+})
 
 const openModal = () => {
     modalCart.classList.add('show')
+    cart.renderCart()
 }
 
 const closeModal = () => {
@@ -82,7 +201,7 @@ const createCard = function ({ label, name, img, description, id , price }) {
                     <h3 class="goods-title">${name}</h3>
                     <p class="goods-description">${description}</p>
                     <button class="button goods-card-btn add-to-cart" data-id="${id}">
-                        <span class="button-price">${price}</span>
+                        <span class="button-price">$ ${price}</span>
                     </button>
                 </div>
     `
