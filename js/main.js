@@ -33,20 +33,12 @@ const getGoods = async () => {
 }
 
 const cart = {
-    cartGoods: [
-        {
-            id: '099',
-            name: 'Dior cap',
-            price: 876,
-            count: 5,
-        },
-        {
-            id: '100',
-            name: 'Ad weather',
-            price: 500,
-            count: 1,
-        }
-    ],
+    cartGoods: [],
+    countQuantity() {
+        cart.cartGoods.reduce((sum, item) => {
+
+        }, 0)
+    },
     renderCart() {
         cartTableGoods.textContent = ''
         this.cartGoods.forEach(({ id, name, price, count }) => {
@@ -76,6 +68,7 @@ const cart = {
     deleteGood(id) {
         this.cartGoods = this.cartGoods.filter(item => id !== item.id)
         this.renderCart()
+        this.countQuantity()
     },
     minusGood(id) {
         for (const item of this.cartGoods) {
@@ -89,6 +82,7 @@ const cart = {
             }
         }
         this.renderCart()
+        this.countQuantity()
     },
     plusGood(id) {
         for (const item of this.cartGoods) {
@@ -98,6 +92,7 @@ const cart = {
             }
         }
         this.renderCart()
+        this.countQuantity()
     },
     addCartGoods(id){
         const goodItem = this.cartGoods.find(item => item.id === id)
@@ -113,6 +108,7 @@ const cart = {
                         price,
                         count: 1
                     })
+                    this.countQuantity()
                 })
         }
     },
