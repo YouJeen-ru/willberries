@@ -460,6 +460,12 @@ button {
     width: 5px;
 }
 
+.btn-danger {
+    background-color: tomato;
+    display: block;
+    margin-left: auto;
+}
+
 
 @media (max-width: 1200px) {
     .slide-1 {
