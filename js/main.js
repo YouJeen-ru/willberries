@@ -23,6 +23,7 @@ const showClothing = document.querySelectorAll('.show-clothing')
 
 const cartTableGoods = document.querySelector('.cart-table__goods')
 const cardTableTotal = document.querySelector('.card-table__total')
+const cartCount = document.querySelector('.cart-count')
 
 const getGoods = async () => {
     const result = await fetch('db/db.json')
@@ -35,8 +36,8 @@ const getGoods = async () => {
 const cart = {
     cartGoods: [],
     countQuantity() {
-        cart.cartGoods.reduce((sum, item) => {
-
+         cartCount.textContent = this.cartGoods.reduce((sum, item) => {
+            return sum + item.count
         }, 0)
     },
     renderCart() {
@@ -114,7 +115,7 @@ const cart = {
     },
 }
 
-cart.addCartGoods('001')
+
 
 document.body.addEventListener('click', event => {
     const addToCart = event.target.closest('.add-to-cart')
