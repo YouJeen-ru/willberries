@@ -262,3 +262,37 @@ showClothing.forEach(item => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     })
 })
+
+// work witch server
+
+const modalForm = document.querySelector('.modal-form')
+
+const postData = dataUser => fetch('server.php', {
+    method: 'POST',
+    body: dataUser
+})
+
+modalForm.addEventListener('submit', event => {
+    event.preventDefault()
+
+    const formData = new FormData(modalForm)
+    formData.append('cart', JSON.stringify(cart.cartGoods))
+
+    postData(formData)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(response.status)
+            }
+            alert('Ваш заказ успешно отправлен')
+            console.log(response.statusText)
+        })
+        .catch(err => {
+            alert('К сожалению произошла ошибка , повторите позже ')
+            console.error(err)
+        })
+        .finally(() => {
+            closeModal()
+            cart.clearCart()
+            modalForm.reset()
+        })
+})
