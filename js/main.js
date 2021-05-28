@@ -36,6 +36,9 @@ const getGoods = async () => {
 
 const cart = {
     cartGoods: [],
+    getCountCartGoods() {
+        return this.cartGoods.length
+    },
     countQuantity() {
          cartCount.textContent = this.cartGoods.reduce((sum, item) => {
             return sum + item.count
@@ -275,24 +278,52 @@ const postData = dataUser => fetch('server.php', {
 modalForm.addEventListener('submit', event => {
     event.preventDefault()
 
-    const formData = new FormData(modalForm)
-    formData.append('cart', JSON.stringify(cart.cartGoods))
+    const validForm = (formData) => {
 
-    postData(formData)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(response.status)
+        let valid = false
+
+        for (const [, value] of formData) {
+            if (value.trim()) {
+                valid = true
+            } else {
+                valid = false
+                break
             }
-            alert('Ваш заказ успешно отправлен')
-            console.log(response.statusText)
-        })
-        .catch(err => {
-            alert('К сожалению произошла ошибка , повторите позже ')
-            console.error(err)
-        })
-        .finally(() => {
-            closeModal()
-            cart.clearCart()
-            modalForm.reset()
-        })
+        }
+
+        return valid
+
+    }
+
+    const formData = new FormData(modalForm)
+
+    if (validForm(formData) && cart.getCountCartGoods()) {
+        formData.append('cart', JSON.stringify(cart.cartGoods))
+
+        postData(formData)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(response.status)
+                }
+                alert('Ваш заказ успешно отправлен')
+                console.log(response.statusText)
+            })
+            .catch(err => {
+                alert('К сожалению произошла ошибка , повторите позже ')
+                console.error(err)
+            })
+            .finally(() => {
+                closeModal()
+                cart.clearCart()
+                modalForm.reset()
+            })
+    } else {
+        if (!cart.getCountCartGoods()) {
+            alert('Добавьте товары в корзину')
+        }
+        if (!validForm(formData)) {
+            alert('Заполните поля правильно')
+        }
+    }
+
 })
