@@ -272,6 +272,9 @@ const modalForm = document.querySelector('.modal-form')
 
 const postData = dataUser => fetch('server.php', {
     method: 'POST',
+    headers: {
+        'Content-Type': 'application/json'
+    },
     body: dataUser
 })
 
@@ -298,9 +301,16 @@ modalForm.addEventListener('submit', event => {
     const formData = new FormData(modalForm)
 
     if (validForm(formData) && cart.getCountCartGoods()) {
-        formData.append('cart', JSON.stringify(cart.cartGoods))
+        const data = {}
 
-        postData(formData)
+        for (const [name, value] of formData) {
+            data[name] =value
+        }
+
+        data.cart = cart.cartGoods
+
+
+        postData(JSON.stringify(data))
             .then(response => {
                 if (!response.ok) {
                     throw new Error(response.status)
