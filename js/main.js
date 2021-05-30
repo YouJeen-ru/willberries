@@ -35,7 +35,10 @@ const getGoods = async () => {
 }
 
 const cart = {
-    cartGoods: [],
+    cartGoods: JSON.parse(localStorage.getItem('cartWild')) || [],
+    updateLocalStorage() {
+        localStorage.setItem('cartWild', JSON.stringify(this.cartGoods))
+    },
     getCountCartGoods() {
         return this.cartGoods.length
     },
@@ -47,6 +50,7 @@ const cart = {
     clearCart() {
         this.cartGoods.length = 0
         this.countQuantity()
+        this.updateLocalStorage()
         this.renderCart()
     },
     renderCart() {
@@ -78,6 +82,7 @@ const cart = {
     deleteGood(id) {
         this.cartGoods = this.cartGoods.filter(item => id !== item.id)
         this.renderCart()
+        this.updateLocalStorage()
         this.countQuantity()
     },
     minusGood(id) {
@@ -92,6 +97,7 @@ const cart = {
             }
         }
         this.renderCart()
+        this.updateLocalStorage()
         this.countQuantity()
     },
     plusGood(id) {
@@ -102,6 +108,7 @@ const cart = {
             }
         }
         this.renderCart()
+        this.updateLocalStorage()
         this.countQuantity()
     },
     addCartGoods(id){
@@ -118,6 +125,7 @@ const cart = {
                         price,
                         count: 1
                     })
+                    this.updateLocalStorage()
                     this.countQuantity()
                 })
         }
